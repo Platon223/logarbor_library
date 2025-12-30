@@ -30,3 +30,5 @@ def log(service_id: str, level: str, message: str):
         return {"message": f"An error occurred while accessing Log API: {e}"}
     except Exception as e:
         return {"message": f"An error occurred during the log function: {e}"}
+    
+    return {"message": "logged the event successfuly"}, 200
