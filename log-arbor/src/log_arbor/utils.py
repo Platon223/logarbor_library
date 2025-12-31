@@ -25,7 +25,7 @@ def log(service_id: str, level: str, message: str):
         response = requests.post(os.getenv("LOGARBOR_LOG_API"), json=log_json)
 
         if not response.status_code == 200:
-            raise RuntimeError(f"Log API rejected a request with status code: {response.status_code} and message: {response.json().get('message')}")
+            raise RuntimeError(f"Log API rejected a request with status code: {response.status_code} and message: {response.text}")
     except RequestException as e:
         raise RuntimeError(f"An error occurred while accessing Log API: {e}")
     except Exception as e:
