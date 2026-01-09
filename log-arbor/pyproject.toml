@@ -1,6 +1,6 @@
 [project]
 name = "log-arbor"
-version = "0.1.6"
+version = "0.1.7"
 description = "This is a library that is used in order to interact with LogArbor."
 readme = "README.md"
 license = "MIT"
