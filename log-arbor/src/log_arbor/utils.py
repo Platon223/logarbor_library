@@ -6,7 +6,7 @@ from requests.exceptions import RequestException
 
 load_dotenv()
 
-def log(service_id: str, level: str, message: str):
+def log(service_id: str, level: str, message: str, user_id: str):
     """Pushes the log to a service through LogArbor Logs API"""
 
     current_time_format_string = "%Y-%m-%d %H:%M:%S"
@@ -18,7 +18,8 @@ def log(service_id: str, level: str, message: str):
             "token": os.getenv("LOGARBOR_API_TOKEN"),
             "message": message,
             "level": level,
-            "time": current_datetime_object.strftime(current_time_format_string)
+            "time": current_datetime_object.strftime(current_time_format_string),
+            "user_id": user_id
         }
 
 
