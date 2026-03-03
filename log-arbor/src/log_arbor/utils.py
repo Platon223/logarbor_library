@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from datetime import datetime
 from requests.exceptions import RequestException
+import inspect
 
 load_dotenv()
 
@@ -12,11 +13,16 @@ def log(service_id: str, level: str, message: str, access_token: str):
     current_time_format_string = "%Y-%m-%d %H:%M:%S"
     current_datetime_object = datetime.now()
 
+    caller_frame = inspect.stack()[1]
+    filepath = caller_frame.filename
+    filename = os.path.basename(filepath)
+    line_number = caller_frame.lineno
+
     try:
         log_json = {
             "service_id": service_id,
             "token": os.getenv("LOGARBOR_API_TOKEN"),
-            "message": message,
+            "message": f"File: {filename}, Line: {str(line_number)} {message}",
             "level": level,
             "time": current_datetime_object.strftime(current_time_format_string),
             "user_id": access_token
