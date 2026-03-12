@@ -1,13 +1,13 @@
 [project]
 name = "log-arbor"
-version = "0.3.10"
+version = "0.3.11"
 description = "This is a library that is used in order to interact with LogArbor."
 readme = "README.md"
 license = "MIT"
 authors = [
     { name = "Platon", email = "platon.tikhnenko@gmail.com" }
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.11"
 dependencies = [
     "datetime>=6.0",
     "python-dotenv>=1.2.1",
