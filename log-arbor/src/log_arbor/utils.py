@@ -32,7 +32,7 @@ def log(service_id: str, level: str, message: str, access_token: str):
         response = requests.post(os.getenv("LOGARBOR_LOG_API"), json=log_json)
 
         if not response.status_code == 200 and not response.status_code == 202:
-            return {"message": f"something went wrong at log api: {response.text}", "status": response.status_code}
+            return {"message": f"something went wrong at logs api: {response.text}", "status": response.status_code}
     except RequestException as e:
         return {"message": f"An error occurred while accessing Log API: {e}", "status": 500}
     except Exception as e:
